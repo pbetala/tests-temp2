@@ -1,17 +1,16 @@
 name: run the workflow
 on:
   repository_dispatch:
-    types: [my-event]
-    
-
+    types: [my-event] 
 jobs:
   build:
     name: run-workflow:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: action/checkout@v3
+      - uses: action/checkout@v2
         with:
           fetch-depth: 0
       - name: print trigger details
-        run: echo ${{ github.event.client_payload.github.action }}
+        run: |
+          echo ${{ github.event.client_payload.github.action }}
+          echo ${{ github.event.client_payload.github.action }}
